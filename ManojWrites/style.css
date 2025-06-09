@@ -16,7 +16,7 @@
         padding: 0 30px;
     }
     .menu-btn{
-      display: block;
+      display: block !important;
     }
 
     .nav-items {
@@ -348,7 +348,9 @@ a{
     position: absolute;
     right: 1rem;
     top: 1.3rem;
-    
+
+    cursor:pointer;
+    z-index:1001;
     font-size: 1.8rem;
     color: var(--navk-link-hover);
     transition: color var(--transition-fast);
