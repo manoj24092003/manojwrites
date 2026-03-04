@@ -1,3 +1,24 @@
+
+
+<div align="center">
+
+![Repo Size](https://img.shields.io/github/repo-size/manoj24092003/manojwrites)
+![Stars](https://img.shields.io/github/stars/manoj24092003/manojwrites)
+![Forks](https://img.shields.io/github/forks/manoj24092003/manojwrites)
+![Issues](https://img.shields.io/github/issues/manoj24092003/manojwrites)
+
+</div>
+
+<br>
+
+
+
+
+
+
+
+
+
 # 📚 Manoj Writes
 
 A modern **story / episodic writing platform** built with **PHP,
@@ -76,6 +97,13 @@ website as a Progressive Web App (PWA)
 -   Firebase Cloud Messaging
 -   Google OAuth
 
+<h3 align="center">⚡ Tech Stack Icons</h3>
+
+<p align="center">
+
+<img src="https://skillicons.dev/icons?i=php,js,html,css,mysql,firebase,github" />
+
+</p>
 ------------------------------------------------------------------------
 
 ## 📂 Project Structure
@@ -208,6 +236,11 @@ Update configuration inside:
 
 If you like this project, consider giving it a **⭐ star on GitHub**.
 
+<div align="center">
+
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=manoj24092003.manojwrites)
+
+</div>
 ------------------------------------------------------------------------
 
 ## 👨‍💻 Author
@@ -219,3 +252,12 @@ https://manojwrites.xyz
 
 GitHub\
 https://github.com/manoj24092003
+
+
+<div align="center">
+
+### ⭐ If you like this project, give it a star!
+
+Made with ❤️ by **Manoj**
+
+</div>
