@@ -125,34 +125,83 @@ website as a Progressive Web App (PWA)
 
 ## 📂 Project Structure
 
-    manojwrites
-    │
-    ├── htdocs
-    │   ├── index.php
-    │   ├── search.php
-    │   ├── google_login.php
-    │   ├── google_callback.php
-    │   ├── logout.php
-    │   │
-    │   ├── hero.js
-    │   ├── hero.css
-    │   ├── style.css
-    │   │
-    │   ├── episodes.json
-    │   │
-    │   ├── notify.php
-    │   ├── save_token.php
-    │   ├── firebase-messaging-sw.js
-    │   │
-    │   ├── feedback_submit.php
-    │   ├── log_visitor.php
-    │   ├── get_visitors.php
-    │   │
-    │   ├── manifest.json
-    │   └── favicon.ico
-    │
-    └── config
-        └── connection.php
+manojwrites
+│
+├── books
+│   ├── index.php
+│   ├── book.css
+│   └── book.js
+│
+├── home
+│   ├── main.js
+│   └── README.md
+│
+├── login
+│   ├── index.php
+│   ├── login.css
+│   ├── login.js
+│   ├── adminpanel.php
+│   ├── adminpanel.css
+│   ├── adminpanel.js
+│   ├── crud.php
+│   ├── feedback.php
+│   ├── recover.php
+│   ├── sync.php
+│   └── sync_modal.php
+│
+├── movies
+│   ├── index.php
+│   ├── content.php
+│   ├── stream.php
+│   ├── player.php
+│   ├── movie.css
+│   ├── movie.js
+│   ├── player.css
+│   ├── player.js
+│   ├── love_toggle.php
+│   ├── watchlist.php
+│   ├── watchlist_toggle.php
+│   ├── save_progress.php
+│   ├── save_real_duration.php
+│   ├── sync_all.php
+│   ├── sync_series.php
+│   ├── sync_episode_meta.php
+│   ├── tmdb.php
+│   └── test.txt
+│
+├── webfonts
+│   ├── PublicSans-Regular.woff
+│   ├── PublicSans-Regular.woff2
+│   ├── fa-brands-400.ttf
+│   ├── fa-brands-400.woff2
+│   ├── fa-regular-400.ttf
+│   ├── fa-regular-400.woff2
+│   ├── fa-solid-900.ttf
+│   ├── fa-solid-900.woff2
+│   ├── fa-v4compatibility.ttf
+│   └── fa-v4compatibility.woff2
+│
+├── index.php
+├── search.php
+├── hero.js
+├── hero.css
+├── style.css
+├── episodes.json
+├── manifest.json
+├── sw.js
+├── notify.php
+├── send.php
+├── send_notification.php
+├── save_token.php
+├── log_visitor.php
+├── get_visitors.php
+├── feedback_submit.php
+├── update_continue_watching.php
+├── update_duration.php
+├── service-account.json
+├── favicon.ico
+└── tiny.mp4
+
 
 ------------------------------------------------------------------------
 
