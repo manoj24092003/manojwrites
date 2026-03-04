@@ -1,0 +1,501 @@
+:root{
+  --nav-link-color:#fff;
+  --nav-link-hover: #e50914;
+  --text:#fff;
+  --hero-heading:#fff;
+  --bg-grey:#000;
+  --bg-white:#000;
+  --bg2nd:#1b1c1f ;
+  --btnclr1:#e50914;
+  --btnclr2:#e50914;
+  --boxshadow:0 26px 58px 0 rgba(0, 0, 0, 0.22),
+    0 5px 14px 0 rgba(0, 0, 0, 0.18);
+}
+/*-----------------------*/
+
+.noto-serif-bengali-noto-serif {
+  font-family: "Noto Serif Bengali", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", serif;
+    -webkit-tap-highlight-color:transparent;
+}
+p{
+    color: #fff;
+}
+html{
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+}
+.body{
+    background-color: var(--bg-grey);
+    width: 100%;
+}
+
+a{
+    text-decoration: none;    
+}
+
+
+/*-----------------*/
+.optional{
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding:1.5rem;
+    background:#000;
+    gap:1rem;
+    width: 100%;
+   
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.session{
+    width: 100%;
+    font-size: 16px;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    color:#fff;
+}
+.optional .logout, .optional a,.optional .feedback-btn,  .controlbtn, .savebtn,
+.action a,.deletebtn,.btn-success,.btn-secondary{
+    position: relative;
+    border: 1px solid #e50914;
+    padding: 7px;
+    height: 2rem;
+    border-radius: 10px;
+    background:#333;
+    color: #fff;
+    text-align:center;
+}
+.optional:hover .logout:hover, .optional a:hover,.controlbtn:hover,.feedback-btn:hover
+, .savebtn:hover, .action a:hover,.deletebtn:hover,.btn-success:hover,.btn-secondary:hover{
+    color: #fff;
+    background-color: #000;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+}
+/* -------------------- */
+.hero{
+    background: #000;
+    min-height:100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    
+    
+} 
+/* ------------------------- */
+.controlbar{
+    position: relative;
+    width: 100%;
+    height: 10vh;
+}
+.controlbox{
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 10px;
+}
+
+
+/*-----------------------------*/
+.home{
+    position:absolute;
+    width: 100%;
+    
+    background-color:#000;
+    min-height :100%;
+}  
+
+
+.rightcontainer{
+
+    border: 1px solid #555;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--bg-white);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    place-items: center;
+
+}
+.upper{
+    width: 98%;
+    margin: 2rem;
+    height: 45dvh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #e50914;
+    border-radius: 10px;
+    background-color: #1b1c1f;
+
+}
+.lower{
+    
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    height: 45dvh;
+    position: relative;
+    gap: 10px;
+    background:#1b1c1f;
+}
+
+.booksection{
+    gap: 1rem;
+    background-color: #1b1c1f;
+    overflow: scroll;
+    position: relative;
+    width: 100%;
+    border: 1px solid #e50914;
+    border-radius: 10px;
+    color :#fff;
+}
+
+
+/* -----form group------ */
+.upper .box{
+    
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem;
+    position: relative;
+
+   
+}
+.title{
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    color:#fff;
+    
+}
+.addbooks .form-group{
+    display: flex;
+    color:#fff;
+    row-gap:1rem;
+}
+.upper .formbox{
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    gap:1rem;
+    
+}
+.formbox  form{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color:#fff;
+}
+.formbox  form input{
+    position: relative;
+    color:#fff;
+    text-decoration:none;
+    background-color:transparent ;
+    border:1px solid #555;
+    border-radius:7px;
+    padding:7px;
+}
+.savebtn:hover{
+    color: #fff;
+    background-color: #000;
+    transition: none;
+}
+.upper .form-group input,textarea{
+    position: relative;
+    width: 100%;
+    display: flex;
+    outline: none;
+}
+.form-group{
+    gap:0.6rem;
+    align-items:center;
+}
+
+.action {
+    height:auto; 
+    width:auto;
+    gap:7px;
+    position:absolute;
+    display:flex;
+    flex-direction:row;
+}
+
+/* ----------------- */
+.chaptext{
+
+    color:#fff;
+    width:100%;
+    position: relative;
+}
+.chapdetails{
+    width: 100%;
+}
+.addchap .formbox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.addchap .formbox form{
+    
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding:0  1rem 0 1rem;
+}
+.addchap .formbox form input{
+    position: relative;
+    display: flex;
+    width: 100%;
+
+        
+}
+.chapright{
+    width: 30dvh;
+    position: relative;
+}
+.chapright .form-group{
+    padding-bottom: 2px;
+}
+.chapright .form-group form input{
+
+    position: relative;
+}
+.forminnbox{
+    gap: 1rem;
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.addpoem{
+    display: none;
+}
+.addchap{
+    display: none;
+}
+/* ----------------------------------------- */
+/* ----------------- */
+.chaptext input{
+
+    background-color:transparent;
+    border-radius:7px;
+    width:100%;
+    position: relative;
+}
+.chapdetails{
+    width: 100%;
+}
+.addpoem .formbox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.addpoem .formbox form{
+    
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    padding:0  1rem 0 1rem;
+}
+.addpoem .formbox form input{
+    position: relative;
+    display: flex;
+    width: 100%;
+
+        
+}
+.chapright{
+    width: 30dvh;
+    position: relative;
+}
+.chapright .form-group{
+    padding-bottom: 2px;
+}
+.chapright .form-group form input{
+
+    position: relative;
+}
+.forminnbox{
+    gap: 1rem;
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+/* ----------------- */
+.table {
+    width: 100%;
+    text-align: center; 
+    vertical-align: middle;
+    
+    row-gap:0.5rem;
+}
+.table thead th {
+    background-color:transparent  ;
+    color: #fff;
+    justify-content: center;
+    align-items:center;
+    text-align:center;
+}
+.table tr:nth-child(even) td{
+    background-color: #000;
+}
+.table tr:hover td{
+    background-color: #555;
+    cursor: pointer;
+}
+.lower h2 {
+    padding:7px;
+    text-align: center; 
+}
+/* ---------------- */
+
+.sync-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sync-modal-content {
+  width: 520px;
+  max-width: 95%;
+  background: #1b1c1f;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.6);
+  overflow: hidden;
+  font-family: Josefin Sans, sans-serif;
+  border:1px solid #e50914;
+}
+
+.sync-modal-header,
+.sync-modal-footer {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1b1c1f;
+  
+}
+.sync-modal-header{
+    border-bottom:1px solid #e50914;
+}
+.sync-modal-footer{
+    border-top:1px solid #e50914;
+}
+
+.sync-modal-header h5 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: #bbb;
+  cursor: pointer;
+  
+}
+
+.icon-btn:hover {
+  color: #e50914;
+}
+
+.sync-modal-body {
+  padding: 16px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  font-size: 13px;
+  margin-bottom: 4px;
+  display: block;
+  color: #ccc;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 10px;
+  background: #1b1c1f;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+}
+
+#syncLog {
+  white-space:pre;
+  background: #000;
+  color: #e50914;/*#00ff88;*/
+  height: 200px;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-y: auto;
+  font-family: monospace !important;
+  font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
