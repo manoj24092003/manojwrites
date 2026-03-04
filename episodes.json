@@ -1,0 +1,41 @@
+{
+  "season": 1,
+  "totalEpisodes": 7,
+  "episodes": [
+    {
+      "ep": 1,
+      "title": "Pukam Pukai",
+      "src": "episode-1/index.m3u8"
+    },
+    {
+      "ep": 2,
+      "title": "Vish Amrit",
+      "src": "episode-2/index.m3u8"
+    },
+    {
+      "ep": 3,
+      "title": "The 12th Man",
+      "src": "episode-3/index.m3u8"
+    },
+    {
+      "ep": 4,
+      "title": "Posham Pa",
+      "src": "episode-4/index.m3u8"
+    },
+    {
+      "ep": 5,
+      "title": "Kacchi Ghodi",
+      "src": "episode-5/index.m3u8"
+    },
+    {
+      "ep": 6,
+      "title": "Chupan Chupai",
+      "src": "episode-6/index.m3u8"
+    },
+    {
+      "ep": 7,
+      "title": "Chiddiya Ud",
+      "src": "episode-7/index.m3u8"
+    }
+  ]
+}

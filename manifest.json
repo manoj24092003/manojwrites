@@ -1,0 +1,24 @@
+{
+    "name":"Manoj Writes",
+    "short_name":"Manoj Writes",
+    "start_url":"https://manojwrites.xyz/",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "display":"standalone",
+    "version":"1.0.4",
+    "icons":[
+        {
+            "src":"home/assets/images/logod192.png",
+            "sizes":"192x192",
+            "type":"image/png",
+              "purpose": "any maskable"
+        },
+        {
+            "src":"home/assets/images/logod512.png",
+            "sizes":"512x512",
+            "type":"image/png",
+              "purpose": "any maskable"
+        }
+
+    ]
+}

@@ -1,0 +1,426 @@
+
+
+
+/* --- Feedback Floating Button --- */
+#feedbackBtn {
+   position: relative;
+   background: transparent;
+    border: none;
+    text-decoration:underline;
+    
+    color: #e50914;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+/* --- Popup Overlay --- */
+#feedbackPopup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+/* --- Popup Box --- */
+.feedback-box {
+    width: 90%;
+    max-width: 400px;
+    background:transparent;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+}
+
+/* --- Heading --- */
+.feedback-box h3 {
+    margin: 0 0 10px;
+    font-weight: 500;
+}
+
+/* --- Textarea --- */
+#fbText {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #222;
+    color: #fff;
+    resize: none;
+    position:relative;
+}
+
+.fb-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Anonymous watermark inside textarea */
+.anon-note {
+    position: absolute;
+    right :10px;
+    margin-top:125px;
+    color: #aaa;
+    opacity: 0.7;
+    font-size:0.8rem;
+    pointer-events: none;
+}
+
+/* Hide note when user types 
+.fb-wrapper textarea:focus + .anon-note,
+.fb-wrapper textarea:not(:placeholder-shown) + .anon-note {
+    opacity: 0;
+}*/
+
+
+/* --- Buttons --- */
+#sendFeedback {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: #000;
+    border:1px solid  #e50914;
+    border-radius: 7px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#closeFeedback {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #444;
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
+
+
+/* container: meta left, description bottom-right */
+.hero-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+
+/* meta column (unchanged, just make sure it doesn't grow too wide) */
+.hero-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  opacity: 0.9;
+  max-width: 40%;
+}
+
+/* short description at bottom-right */
+.hero-desc {
+  max-width: 55%;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: right;
+  opacity: 0.9;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;      /* show up to 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* mobile: stack meta over description, full width */
+@media (max-width: 640px) {
+  .hero-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-meta-row {
+    max-width: 100%;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+    text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+}
+@media (min-width:700px){
+.hero-desc{
+    font-size:1rem;
+    text-align: left;
+    max-width:460px;
+    opacity:0.9;
+    line-height:1.4;
+    }
+}
+
+
+
+
+
+/* ===== TOP MOVIES HERO – banner slider ===== */
+
+.top-hero {
+  padding: 0;
+  margin-bottom: 0.8rem;
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+
+.top-hero-header {
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.top-hero-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.top-hero-see-all {
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: #ffffff22;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* slider */
+
+.hero-slider {
+  position: relative;
+  height: 300px;
+  width:100%;
+    overflow:hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+    opacity:0;
+  cursor: pointer;
+}
+
+.hero-image-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-slide.is-active {
+  z-index:1;
+  opacity:1;
+}
+
+.hero-bg-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.7s ease-out;
+}
+/*
+.hero-slide.is-active .hero-bg-img.is-ready{
+  opacity: 1;
+}*/
+
+.hero-slide.is-active .hero-bg-img {
+    opacity: 1;
+}
+
+.hero-slide:not(.is-active) .hero-bg-img {
+    opacity: 0;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    /* bottom band: 0–20% very dark, then fade */
+ linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.94) 10%,
+      rgba(0, 0, 0, 0.80) 22%,
+      rgba(0, 0, 0, 0.50) 35%,  /* end of very dark zone */
+      rgba(0, 0, 0, 0.18) 50%,
+      rgba(0, 0, 0, 0.00) 70%   /* smooth fade, no hard line */   
+    ),
+ /* 2) Left vignette – helps text/logo on left pop */
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.60) 0%,
+      rgba(0, 0, 0, 0.40) 10%,
+      rgba(0, 0, 0, 0.15) 25%,
+      rgba(0, 0, 0, 0.00) 45%
+    ),
+
+    /* 3) Right vignette – soft, so poster center stays bright */
+    linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.40) 0%,
+      rgba(0, 0, 0, 0.28) 8%,
+      rgba(0, 0, 0, 0.12) 20%,
+      rgba(0, 0, 0, 0.00) 40%
+    );
+}
+
+/* content */
+
+.hero-banner-content {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.8rem;
+  right: 1.5rem;
+  z-index: 2;
+  color: #fff;
+}
+@media (max-width: 640px) {
+  .hero-banner-content {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.4rem;
+  }
+
+}
+
+.hero-logo {
+  max-width: 55%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.hero-title-fallback {
+  margin: 0 0 0.55rem;
+  font-size: 1.4rem;
+}
+
+.hero-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.45rem;
+}
+
+.hero-tags-row span {
+  font-size: 0.7rem;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+}
+
+.hero-meta-row {
+  display: flex;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  opacity: 0.9;
+}
+
+/* dots */
+
+.hero-dots {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 0 0.7rem;
+  z-index: 4;
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(255,255,255,0.35);
+  padding: 0;
+  cursor: pointer;
+  transition:
+    width 0.35s ease,
+    background 0.35s ease,
+    transform 0.35s ease;
+}
+
+.hero-dot.is-active {
+  width: 16px;
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+.hero-banner-content {
+left: 0.5rem;
+right: 0.5rem;
+bottom: 1.2rem;
+}
+.hero-logo {
+max-width: 40%;
+}
+@media (min-width: 992px) {
+    .hero-dots{
+ position: static; /* sit at bottom of.top-hero */
+    padding: 0.6rem 0 1rem;
+  }
+    .top-hero{
+         height: calc(100vh - 90px); /* 90px ≈ your header height; tweak if needed */
+    display: flex;
+    flex-direction: column;
+
+  }
+  .hero-slider {
+      flex: 1 1 auto;
+    height: 100%;
+  }
+  .hero-banner-content {
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 1.2rem;
+  }
+  .hero-logo {
+    max-width: 40%;
+    
+  }
+    
+    
+    
+    
+    
+    
+    
+}
