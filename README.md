@@ -1,3 +1,22 @@
+<p align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,100:2c5364&height=200&section=header&text=Manoj%20Writes&fontSize=40&fontColor=ffffff" />
+</p>
+
+
+
+<p align="center">
+
+<img src="https://skillicons.dev/icons?i=php,js,html,css,mysql,firebase,github" />
+
+</p>
+
+
+
+<div align="center">
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=1000&color=2ECC71&center=true&vCenter=true&width=700&lines=Manoj+Writes;Modern+Story+Publishing+Platform;PHP+%7C+Firebase+%7C+JavaScript;Progressive+Web+App" />
+
+</div>
 
 
 <div align="center">
@@ -97,7 +116,6 @@ website as a Progressive Web App (PWA)
 -   Firebase Cloud Messaging
 -   Google OAuth
 
-<h3 align="center">⚡ Tech Stack Icons</h3>
 
 <p align="center">
 
@@ -241,6 +259,22 @@ If you like this project, consider giving it a **⭐ star on GitHub**.
 ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=manoj24092003.manojwrites)
 
 </div>
+<h2 align="center">📊 GitHub Stats</h2>
+
+<p align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=manoj24092003&show_icons=true&theme=tokyonight" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=manoj24092003&layout=compact&theme=tokyonight" />
+
+</p>
+<h2 align="center">📈 Contribution Graph</h2>
+
+<p align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=manoj24092003&theme=tokyo-night" />
+
+</p>
 ------------------------------------------------------------------------
 
 ## 👨‍💻 Author
