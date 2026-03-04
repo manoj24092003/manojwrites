@@ -1,0 +1,887 @@
+
+/* -------------------------------------------------
+   BASE STYLES
+------------------------------------------------- */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+@font-face {
+    font-family: "Public Sans";
+    src: url("../webfonts/PublicSans-Regular.woff2") format("woff2"),
+         url("../webfonts/PublicSans-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --accent: #e51409;
+    --font: "Josefin Sans";
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    font-family: var(--font) !important;
+    user-select: none;
+}
+
+/* STYLE SUBTITLE CUE TEXT */
+::cue {
+    color: #ffffff !important;  /* text color */
+    font-family: "Public Sans" !important;
+    font-size: 16px !important;      /* size */
+    text-shadow: 2px 2px 6px black !important;
+    padding: 0px 10px !important;
+    line-height: 1.4 !important;
+    position: relative;
+    text-decoration:none !important;
+    
+}
+
+/* This moves the whole subtitle box upward */
+video::-webkit-media-text-track-display {
+    transform: translateY(-10px) !important;
+    
+}
+
+
+/* Normal when hidden */
+#vp-container.controls-hidden #vp-video-wrap video {
+    filter: brightness(1);
+}
+
+* {
+    box-sizing: border-box;
+    font-family:"Josefin Sans";
+}
+
+#vp-toast {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background:rgba(240, 240, 240, 0.25);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 999;
+}
+
+#vp-toast.show {
+    opacity: 1;
+}
+.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#vp-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.35); /* dim amount */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease ;
+    z-index: 0;
+}
+
+
+/* ========== UNIVERSAL SCROLLBAR HIDE FOR PLAYER ========== */
+
+#vp-container *::-webkit-scrollbar {
+    display: none !important;
+}
+
+#vp-container * {
+    -ms-overflow-style: none !important;   /* IE/Edge */
+    scrollbar-width: none !important;      /* Firefox */
+}
+/* -------------------------------------------------
+   MAIN CONTAINER
+------------------------------------------------- */
+#vp-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: black;
+    overflow: hidden;
+    max-height:100%;
+}
+
+/* -------------------------------------------------
+   HEADER
+------------------------------------------------- */
+#vp-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items:center;
+    padding:12px 0px 0px 0px;
+    z-index: 30;
+    transition:0.4s ease;
+}
+
+#vp-title{
+    left:50%;
+    transform: translateX(-50%);
+    color: white;
+    position:absolute ;
+    padding:12px 0px;
+    white-space: nowrap;
+   
+}
+.vp-icon-btn{
+    color:#fff;
+    border:none;
+    background: transparent;
+    transition: color 0.15s ease;
+    padding-left:0px !important;
+    
+}
+#vp-back i{
+    background:transparent !important;
+    font-size:1.5rem;
+    padding-left: 2rem !important;
+    
+}
+
+/*----------------------------------------------
+              VP BOTTOM 
+----------------------------------------------*/
+
+/* -------------------------------------------------
+   VIDEO + LOADER
+------------------------------------------------- */
+#vp-video-wrap {
+    flex: 1;
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+#vp-video {
+    width: 100%;
+    height: 100%;
+    background: black;
+    object-fit: contain;
+   opacity: 1 !important;
+    visibility: visible !important;
+    will-change: opacity transform;
+}
+
+.vp-loader {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border: 4px solid #e51409;
+    border-top-color: transparent;
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 1.2s cubic-bezier(.4,0,.2,1) infinite;
+}
+
+.hidden { display: none; }
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+        border-top-color: #e51409;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+
+    20% {
+        border-right-color: #e51409;
+    }
+
+    40% {
+        border-bottom-color: #e51409;
+    }
+
+    60% {
+        border-left-color: #e51409;
+    }
+
+    80% {
+        border-right-color: transparent;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+        border-top-color: #e51409;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left-color: transparent;
+    }
+}
+/* -------------------------------------------------
+   CENTER PLAY
+------------------------------------------------- */
+
+.playpause {
+    width: 30px;  
+    height: 40px;
+    background: transparent  ;    
+    transition: clip-path 0.15s ease;
+    cursor: pointer;
+    position: relative;
+    z-index:9999;
+    pointer-events:auto !important; 
+}
+
+#vp-center {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: auto !important;
+    z-index:9999 !important;
+    background:transparent ;
+}
+
+
+.playpause::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent ;
+    pointer-events: auto;
+    z-index: 1000000; 
+}
+
+.playpause::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white ;
+    pointer-events: none;
+    z-index: 999999;
+    transform: translateX(0.7px);
+    clip-path: polygon(
+      0 0,
+      50% 25%,
+      50% 75%, 
+      50% 75%,
+      50% 25%,
+      100% 50%,
+     100% 50%,
+      0 100%
+    );
+    
+    transition: clip-path 0.15s ease;
+    shape-rendering: crispEdges;
+}
+
+.playpause.playing::after {
+    clip-path: polygon(
+        0 0,
+        29.5% 0,
+        29.5% 100%,
+        63% 100%,
+        63% 0,
+        93% 0,
+        93% 100%,
+        0 100%
+    );
+    shape-rendering:crispEdges;
+}
+
+.pp-ripple {
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    opacity: 0;
+    pointer-events: auto !important;
+    transition: opacity 0.35s ease;
+}
+.pp-ripple.active {
+    opacity: 1;
+}
+
+/* -------------------------------------------------
+   DOUBLE TAP ZONES
+------------------------------------------------*/
+.vp-gesture-zone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2; /* below controls, above video */
+}
+
+/* LEFT ZONE = 33% */
+#vp-gesture-zone-left {
+    left: 0;
+    width: 44%;
+    pointer-events: auto;
+ 
+}
+
+/* RIGHT ZONE = 33% */
+#vp-gesture-zone-right {
+    right: 0;
+    width: 44%;
+    pointer-events: auto;
+  
+}
+
+/* CENTER ZONE = 34% (DO NOT block clicks) */
+#vp-gesture-zone-center {
+    left: 44%;
+    width: 12%;
+    pointer-events:auto;   /* IMPORTANT */
+   
+}
+
+/* -------------------------------------------------
+   SKIP ANIMATION
+------------------------------------------------- */
+.vp-skip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+#vp-skip-left { left: 18%; }
+#vp-skip-right { right: 18%; }
+
+.vp-skip.show { opacity: 1; }
+
+.vp-skip{
+    justify-content: center;
+    
+}
+.vp-skip-circle span{
+    width: 90px;
+    height: 90px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    
+}
+/*========================================
+        BOTTOM PORTION 
+========================================*/
+
+/* ============================================
+   UNIVERSAL CONTROL SLIDE ANIMATION
+   ============================================ */
+/* Base state (required for smooth animation) */
+.vp-anim ,
+.vp-anim-top{
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease !important;
+}
+/* Controls visible → fade + slide UP */
+#vp-container:not(.controls-hidden) .vp-anim {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* Controls hidden → fade + slide DOWN */
+#vp-container.controls-hidden .vp-anim {
+    opacity: 0;
+    transform: translateY(95px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* TOP elements slide from TOP instead of bottom */
+.vp-anim-top {
+    transform: translateY(-35px);  /* hidden = moved up */
+    opacity:1;
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+/* When controls visible → header slides DOWN smoothly */
+#vp-container:not(.controls-hidden) .vp-anim-top {
+    transform: translateY(0);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+/* Controls HIDDEN → header fades + moves UP */
+#vp-container.controls-hidden .vp-anim-top {
+    opacity: 0;
+    transform: translateY(-35px);
+}
+#vp-container.controls-hidden #vp-video {
+    opacity: 1 !important;
+}
+/* -------------------------------------------------
+   TIMELINE
+------------------------------------------------- */
+#vp-timeline {
+    position: absolute;
+    bottom: 60px;
+    left: 0; right: 0;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    z-index: 30;
+    gap:16px;
+}
+
+.vp-time-current,
+.vp-time-total {
+    width: 40px;
+    text-align: center;
+    color: white;
+    
+}
+
+.vp-seek-area {
+    flex: 1;
+    position: relative;
+    height: 34px;
+    cursor: pointer;
+    touch-action:none;
+    -webkit-tap-highlight-color:transparent;
+    
+}
+
+.vp-buffered {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: rgba(255,255,255,0.7);
+    width: 0;
+    transform: translateY(-50%);
+    z-index:2;
+}
+
+.vp-progress {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: var(--accent);
+    width: 0;
+    transform: translateY(-50%);
+    z-index:2;
+}
+
+.vp-thumb {
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index:3;
+   
+}
+.vp-thumb {
+    pointer-events: auto;
+}
+
+.vp-thumb::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 44px;     /* bigger hitbox */
+    height: 44px;
+    transform: translate(-50%, -50%);
+}
+.vp-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: rgba(180, 180, 180, 0.45);
+    border-radius: 2px;
+    transform: translateY(-50%);
+    z-index:1;
+}
+
+/* -------------------------------------------------
+   MENU BUTTONS
+------------------------------------------------- */
+
+#vp-menu {
+    position: absolute;
+    bottom: 18px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    
+    z-index: 30;
+    padding-left:12%;
+    padding-right:12%;
+}
+
+.vp-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    border:none;
+    background: transparent;
+    transition :color 0.25s ease;
+}
+.vp-btn.touch-effect, .vp-icon-btn.touch-effect{
+    color:#e51409;
+}
+
+/* -------------------------------------------------
+   LOCK MODE
+------------------------------------------------- */
+#vp-lock-small {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #e51409;
+    padding: 8px 12px;
+    border-radius: 30px;
+    display: none;
+    z-index: 9999999;
+    background: transparent;
+    border:none;
+    
+}
+.lbtext{
+    font-size:1.5rem;
+}
+.lstext{
+    align-content: center;
+   font-size:1rem;
+}
+
+.vp-locked #vp-header,
+.vp-locked #vp-center,
+.vp-locked #vp-menu,
+.vp-locked #vp-timeline{
+    display: none !important;
+}
+
+.vp-locked .vp-gesture-zone {
+    pointer-events: none;
+}
+
+.vp-locked #vp-lock-small {
+    display: flex !important;
+   
+}
+
+/*---------------------------
+RESIZE 
+----------------------------*/
+#vp-video.fit {
+    object-fit: contain;
+}
+
+#vp-video.fill {
+    object-fit: cover;
+}
+
+
+/*--------------------
+ROTATE 
+---------------------*/
+/* When phone is in landscape */
+/* In landscape mode, video container MUST be full-screen */
+@media (orientation: landscape) {
+    #vp-video-wrap,
+    #vp-video,
+    #vp-container {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: 100vw !important;
+        max-height: 100vh !important;
+    }
+}
+
+/*------------------------
+HIDE CONTROLS
+--------------------------*/
+
+
+/* Allow middle area to stay clickable */
+.controls-hidden #vp-center {
+    opacity: 0;
+    pointer-events: auto !important;   /* FIX */
+}
+
+.controls-hidden #vp-center * {
+    pointer-events: auto !important;   /* FIX */
+}
+
+.controls-hidden #vp-header,
+.controls-hidden #vp-timeline,
+.controls-hidden #vp-menu {
+    opacity:0;
+    pointer-events: none !important;
+}
+
+
+/* Smooth fade */
+#vp-header,
+#vp-center,
+#vp-timeline,
+#vp-menu,
+#vp-lock-small{
+    transition: opacity 0.2s ease;
+}
+
+/* ------------------------
+SETTINGS CONTAINERS 
+---------------------------*/
+.vp-settings {
+    position: absolute;
+    bottom: 100px;
+    left: 50% ; right: 0px;
+    transform:translateX(-50%);
+    display: flex;
+    justify-content:center;
+    white-space: nowrap;      
+    overflow: hidden;     
+    text-overflow: ellipsis;  
+    width:380px;
+    max-height:300px;
+    z-index:999999 !important;
+    
+    
+}
+.vp-settings.hidden {
+    display: none;
+}
+
+.vp-settings-box {
+    width:88% !important;
+    max-width:380px;
+    background: #1c1b1f;
+    border-radius: 22px;
+    padding: 18px 22px 18px 22px;
+    overflow-y:scroll;
+    z-index:999999 !important;
+}
+
+.vp-setting-row,
+.vp-setting-option {
+    padding: 18px 22px 18px 22px;
+    color: white;
+    /*border-bottom: 1px solid rgba(255,255,255,0.15);*/
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index:9999920 !important;
+    background:#1c1b1f;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    border:none;
+    align-items:center;
+    
+}
+
+
+.vp-arrow { opacity: 0.6; }
+
+.vp-setting-option.active {
+    color: var(--accent);
+}
+
+#vp-settings,
+#vp-speed-menu,
+#vp-quality-menu,
+#vp-subtitles-menu {
+    z-index:1999990 !important;
+    position: absolute;
+}
+
+#vp-sub-cancel {
+   background: #2d2b30;
+   color: #d0d0d0;
+}
+
+
+/* ===================== SUBTITLE 90px Up) ===================== */
+/* Default subtitle position */
+.sub-normal::-webkit-media-text-track-display {
+    transform: translateY(-10px) !important;
+    transition: transform 0.45s ease !important;
+}
+
+/* When controls shown → move up by +80px */
+.sub-up::-webkit-media-text-track-display {
+    transform: translateY(-90px) !important;
+    transition: transform 0.45s ease !important;
+}
+
+/* ===================== SUBTITLE DELAY BOX (Google Style) ===================== */
+/* Popup box */
+#vp-sync-box {
+    position: absolute;
+    left: 50%;
+    
+    bottom:100px;
+    transform: translateX(-50%);
+    width: 88%;
+    max-width: 380px;
+    background: #1c1b1f;
+    border-radius: 22px;
+
+    padding: 25px 22px 22px 22px;
+    color: white;
+
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+#vp-sync-box.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Title */
+#vp-sync-box h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* "0 ms" display text */
+#vp-sync-sub {
+    font-size: 1.15rem;
+    color: #d3d3d3;
+    margin-top: 0px;
+    text-align: center;
+}
+
+/* Row with - 0 + */
+.vp-sync-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+}
+
+/* Minus / Plus buttons */
+.vp-sync-row button {
+    background: #2e2e32;
+    border: none;
+    color: white;
+    font-size: 1.7rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    -webkit-tap-highlight-color: #2a2a2a;
+}
+
+/* Editable number field (the middle 0) */
+#vp-sync-edit {
+    width: 60px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    text-align: center;
+    font-size: 1.4rem;
+    padding-bottom: 5px;
+    outline: none;
+    color: white;
+}
+
+/* Bottom buttons */
+.vp-sync-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.vp-sync-actions button {
+    flex: 1;
+    padding: 12px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Apply (pink) */
+#vp-sync-apply {
+    background: #2b2b30;
+    color: #e51409;/*#1c1b1f*/
+}
+
+/* Reset + Cancel */
+#vp-sync-reset,
+#vp-sync-cancel {
+    background: #2d2b30;
+    color: #d0d0d0;
+}
+
+/* Remove input arrows */
+#vp-sync-edit::-webkit-inner-spin-button,
+#vp-sync-edit::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
