@@ -124,7 +124,7 @@ website as a Progressive Web App (PWA)
 ------------------------------------------------------------------------
 
 ## 📂 Project Structure
-
+```
 manojwrites
 │
 ├── books
@@ -201,7 +201,7 @@ manojwrites
 ├── service-account.json
 ├── favicon.ico
 └── tiny.mp4
-
+```
 
 ------------------------------------------------------------------------
 
